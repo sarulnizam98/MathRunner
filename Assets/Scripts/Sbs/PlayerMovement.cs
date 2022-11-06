@@ -65,10 +65,20 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJump--;
+
         }
         else if(Input.GetButtonDown("Jump") && extraJump == 0 && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpForce;
+        }
+
+        if(isGrounded == false)
+        {
+            anim.SetBool("isJumping", true);
+        }
+        else if(isGrounded == true)
+        {
+            anim.SetBool("isJumping", false);
         }
     }
 
